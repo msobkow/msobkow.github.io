@@ -1,2 +1,8 @@
 # msobkow.github.io
-Mark Sobkow's Code Factory 3.0
+Mark Stephen Sobkow's Code Factory 3.0 (MssCF)
+
+The logical domain server.markhome.msscf is not registered and hosted on the public internet, as this project is currently under internal development and virtually hosted in my own network. This code release is a preview, and I don't expect to be doing a production release until late 2026 to mid 2027. There is an incredible amount of code that needs refreshing and updating to fit my new visions of "how to internet."
+
+Although I was able to work through setting up a JPA framework with the assistance of Claude 3.5, Google's search/LLM, and OpenAI ChatGPT 4.0, I found the experience very drawn out and painful, likely at least partially due to issues that got fixed during the two dot-releases of Spring that came out during my efforts.
+
+Only server.markhome.msscf.msscf.cflib.dbutil and server.markhome.msscf.msscf.cflib.dbtest leverage LLM enhancements; I don't expect to be using the technology any further, as I know what I want for the rest of my code base. I just couldn't find a coherent example of how to set up a _modern_ JPA framework on the web; all the examples I found were outdated or incomplete. server.markhome.msscf.msscf.cflib.dbtest is my "gold standard" for what I want the setup code for silo'd scchemas/modules in my overall application architecture. Note that I do not intend to make use of two phase commit coordination in my code base; I prefer nested transactions when I need to coordinate databases to the risks of the transaction coordinator failing, leaving all the participants hung.  Two phase technology is not the panacea some think it to be.
