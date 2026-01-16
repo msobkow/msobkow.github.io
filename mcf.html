@@ -49,6 +49,7 @@ Yes, it is a lot of repositories, and a lot more are coming over the next few mo
 <p>
 Once you've cloned the repos, you need to set up your environment. For your .profile, you need something like this:
 <pre>
+<code id="dotProfileText">
 export ANT_HOME=/opt/apache-ant-1.10.15
 export MAVEN_HOME=/opt/apache-maven-3.9.11
 export JFX_HOME=/usr/lib/jvm/javafx-sdk-25.0.1
@@ -69,10 +70,12 @@ export PSEP=":"
 export DSEP="/"
 
 export PATH=/home/msobkow/bin:$MCF_HOME/bin-v3_1:$MSSCF_HOME/v3_1-maven/java/bin-v3_1:$MSSCF_HOME/v2_13-maven/bin-v2_13:$MSSCF_HOME/v2_12/bin:$JDK_HOME/bin:$JDK_HOME/lib:$PATH_TO_FX:$MAVEN_HOME/bin:$MAVEN_HOME/lib:$ANT_HOME/bin:$ANT_HOME/lib:$NETBEANS_HOME/bin:/usr/sbin:$PATH
+</code>
 </pre>
 <p>
 Then we have some useful .bash_aliases, though they aren't required, just handy:
 <pre>
+<code id="bashAliasesText">
 alias ls='/usr/bin/ls -AC --classify=auto --group-directories-first '
 alias ll='/usr/bin/ls -l '
 alias initgit='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519'
@@ -82,15 +85,18 @@ alias cdkb='cd /opt/msscode/v2_13-maven/org.msscf.msscf.v2_13.cfkbase/src/main/r
 alias cdmsscf='cd /opt/msscode'
 alias cdmcf='cd /opt/mcf/v3_1/java'
 alias lsd="/usr/bin/ls -A --classify=always . | grep '.*/$';/usr/bin/ls -A --classify=always . | grep '.*@$'"
+</code>
 </pre>
 <p>
 Then you set up a .msscfrc configuration file for version 2.13 to use, which has to be located in your home directory:
 <p>
 <pre>
+<code id="dotMsscfrcText">
 msscf.cartridgedir=/opt/msscode/v2_13-maven/org.msscf.msscf.v2_13.cfkbase/src/main/resources
 #msscf.cartridgedir1=/opt/msscode/v2_13-maven/cfkbase-v2_13/cartridge-2.13
 msscf.modeldir=/opt/msscode/v2_13-maven/cfmodel-v2_13/model-2.13
 msscf.rootgendir=/opt/mcf/v3_1
+</code>
 </pre>
 <p>
 Start a new login shell reading those environmental changes, and within it you should be able to run the utility program "BuildCFAll213.bash", which will run through all the v2.13 packages and build and install them in the correct order, eventually depositing binaries in bin-v2_13. Once you've done that, you're ready to run the tool. As a test, specify "msscf.rootgendir" to point somewhere other than overwriting the /opt/mcf source tree, and run "ManufactureCFSec31Java.bash 42" (the number you pass doesn't matter, it used to be a build number - I may resurrect that.) You should see many messages rapidly streaming by about the files being manufactured. You will probably see a lot of errors about the unresolved .xsd specifications; I'll work on resolving that by temporarily using the msobkow.github.io website to serve those up.
