@@ -38,5 +38,61 @@ What Mark's Code Fractal will be bringing to the table is <i>consistent</i> outp
 Although I've focused on Java for the past while, there are examples of C++ rules in cfkbase-v2_13, there used to be samples of C# rules, and there are a plethora of examples of JDBC stored procedure and binding layer implementations for most of the major databases in the old rule set.  But all of that is only gleaned for useful fragments at this point; the modern magic happens elsewhere: in org.msscf.msscf.v2_13.cfkbase/src/main/resources. There you'll find the server.markhome.* rules that define the 3.1 code base along with the foundational class implementations and interfaces for cflib in the 3.1 core. Only the Java core code is being uploaded at this point in time - as it is there are now over 50 repos under my id...
 <p>
 I'm guessing I've got about 9-15 months of work left to achieve my 3.1 vision. But it's far enough along to share with the world...
+<p>
+<H3>So what exists currently?</H3>
+<p>
+Currently the repositories provide the complete set of source code, models, and rule bases from MSS Code Factory 2.13 under the logical domain "org.msscf", which doesn't actually exist.  The copyright is not based on the domain, however, but on my name and contact information. In the bin-v2_13 repository are a number of scripts which can be used to set up a code factory environment. For example, I have my source trees for mcf and msscode under /opt/mcf and /opt/msscode respectively, with symbolic links from my home directory to those directories. I recommend creating /opt/msscode/v2_13-maven and cloning the various *2_13* repositories under there.
+<p>
+All of the server.markhome repositories are for Mark's Code Factory 3.1, which is emphatically a work in progress and currently consists of untested and unverified code that mostly clean compiles. Those should be cloned under /opt/mcf/v3_1/java/ (trust me on the directory hierarchy; that's how the output gets laid out by the tool.)
+<p>
+Yes, it is a lot of repositories, and a lot more are coming over the next few months to deal with message communications channels, RAM storage, a document editor object, and a few other things I have in mind. One major feature, one new repo for each of the three component projects.
+<p>
+Once you've cloned the repos, you need to set up your environment. For your .profile, you need something like this:
+<pre>
+export ANT_HOME=/opt/apache-ant-1.10.15
+export MAVEN_HOME=/opt/apache-maven-3.9.11
+export JFX_HOME=/usr/lib/jvm/javafx-sdk-25.0.1
+export PATH_TO_FX=$JFX_HOME/lib
+
+export JAVA_HOME=/usr/lib/jvm/jdk-25.0.1+8
+export JDK_HOME=/usr/lib/jvm/jdk-25.0.1+8
+export JAVA="$JDK_HOME/bin/java"
+export JAVAC="$JDK_HOME/bin/javac"
+export NETBEANS_HOME=/usr/lib/apache-netbeans/
+
+export MSSCF_HOME=/opt/msscode
+export MSSCFHOME=$MSSCF_HOME
+export MSSCF_WORKKB=$MSSCF_HOME/v2_13-maven/org.msscf.msscf.v2_13.cfkbase/src/main/resources
+export MCF_HOME=/opt/mcf/v3_1/java
+export JSEP=":"
+export PSEP=":"
+export DSEP="/"
+
+export PATH=/home/msobkow/bin:$MCF_HOME/bin-v3_1:$MSSCF_HOME/v3_1-maven/java/bin-v3_1:$MSSCF_HOME/v2_13-maven/bin-v2_13:$MSSCF_HOME/v2_12/bin:$JDK_HOME/bin:$JDK_HOME/lib:$PATH_TO_FX:$MAVEN_HOME/bin:$MAVEN_HOME/lib:$ANT_HOME/bin:$ANT_HOME/lib:$NETBEANS_HOME/bin:/usr/sbin:$PATH
+</pre>
+<p>
+Then we have some useful .bash_aliases, though they aren't required, just handy:
+<pre>
+alias ls='/usr/bin/ls -AC --classify=auto --group-directories-first '
+alias ll='/usr/bin/ls -l '
+alias initgit='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519'
+alias ollamals="docker exec -it ollama ollama 'ls'"
+alias ollama="docker exec -it ollama ollama "
+alias cdkb='cd /opt/msscode/v2_13-maven/org.msscf.msscf.v2_13.cfkbase/src/main/resources'
+alias cdmsscf='cd /opt/msscode'
+alias cdmcf='cd /opt/mcf/v3_1/java'
+alias lsd="/usr/bin/ls -A --classify=always . | grep '.*/$';/usr/bin/ls -A --classify=always . | grep '.*@$'"
+</pre>
+<p>
+Then you set up a .msscfrc configuration file for version 2.13 to use, which has to be located in your home directory:
+<p>
+<pre>
+msscf.cartridgedir=/opt/msscode/v2_13-maven/org.msscf.msscf.v2_13.cfkbase/src/main/resources
+#msscf.cartridgedir1=/opt/msscode/v2_13-maven/cfkbase-v2_13/cartridge-2.13
+msscf.modeldir=/opt/msscode/v2_13-maven/cfmodel-v2_13/model-2.13
+msscf.rootgendir=/opt/mcf/v3_1
+</pre>
+<p>
+Start a new login shell reading those environmental changes, and within it you should be able to run the utility program "BuildCFAll213.bash", which will run through all the v2.13 packages and build and install them in the correct order, eventually depositing binaries in bin-v2_13. Once you've done that, you're ready to run the tool. As a test, specify "msscf.rootgendir" to point somewhere other than overwriting the /opt/mcf source tree, and run "ManufactureCFSec31Java.bash 42" (the number you pass doesn't matter, it used to be a build number - I may resurrect that.) You should see many messages rapidly streaming by about the files being manufactured. You will probably see a lot of errors about the unresolved .xsd specifications; I'll work on resolving that by temporarily using the msobkow.github.io website to serve those up.
 </BODY>
 </HTML>
