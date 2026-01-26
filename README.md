@@ -1,6 +1,4 @@
 # msobkow.github.io
-The logical domain server.markhome.msscf is not registered and hosted on the public internet, as this project is currently under internal development and virtually hosted in my own network. Any code released at this point for the 3.1 version will therefore be very much a preview/prerelease and far from official.
+The logical domains org.msscf and io.github.msobkow are not registered and hosted on the public internet per se, as I'm retired and largely coding for fun. There is a chance of someday making money from this work of mine, this windmill, but for now it gets nothing but my time and use of my hardware. And for-free internet services.
 
-My intent is to license the bulk of the code under Apache V2, in particular the code manufactured for the core objects and IO facilities, but not the custom code modules or the rule base associated with the tool. Those will be under a dual GPLv3/commercial license, including CFCore, a key component of the technology that has been developed to support the code manufacturing process, with myself providing the commercial licenses.
-
-As such, the tool itself will be released under GPLv3/commercial, and therefore useable "as is" when appropriately built and configured.
+This code is licensed under either the GNU Public License Version 3, GNU Library Public License Version 3, or commercial license directly from Mark Sobkow at mark.sobkow@gmail.com, depending on which package/repository you are looking at.  Check the root directories of the repositories for details.
