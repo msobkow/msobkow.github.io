@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<!--
+ *	$Revision$
+-->
+<HTML>
+<HEAD>
+	<META HTTP-EQUIV="CONTENT-TYPE" content="text/html; charset=iso-8859-1">
+	<META HTTP-EQUIV="CONTENT-SCRIPT-TYPE" content="text/javascript">
+	<META HTTP-EQUIV="CONTENT-STYLE-TYPE" content="text/css">
+	<META HTTP-EQUIV="Cache-Control" content="max-age=0">
+	<META http-equiv="Cache-Control" content="no-cache">
+	<META HTTP-EQUIV="expires" content="0">
+	<META HTTP-EQUIV="Expires" CONTENT="Tue, 01 Jan 1980 1:00:00 GMT">
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<TITLE>Mark's Code Fractal Development Log</TITLE>
+	<LINK rel="stylesheet" HRef="css/cf-content.css" type="text/css">
+</HEAD>
+<BODY>
+<p>
+<CENTER><H1>
+<A Target="_blank" HRef="https://msobkow.github.io//?source=website"><img align=vcenter src="resources/MSS-BadgeLogo-98x80.png" width="100" height="80"/></A>
+&nbsp;&nbsp;&nbsp;Mark's Code Fractal&nbsp;&nbsp;&nbsp;
+</H1></CENTER>
+<p>
+<table cols="3" width="95%" align="center">
+	<tr><td align="left"><A HRef="mcf.html">Prev</A></td>
+		<td align="center"><A HRef="index.html">Home</A></td>
+		<td align="right"><A HRef="msscf.html">Next</A></td>
+		</tr>
+</table>
+<p>
+<CENTER><H2>Mark's Code Fractal Development Log</H2></CENTER>
+<p>
+The following items have been finished recently.  At this point, the focus is on getting the core of the Fractal engine up and running on the latest and greatest code base, which is both JDK17 and JDK25 compatible at this point (I believe there are options for JDK17 that have to be turned on for successful compilation of this code base, however - features that were only proposals at the time of JDK17 are relied on. Those features are full default aspects of Java for JDK25. The primary one is the use of static final variables in interfaces.)
+<ul>
+<li>A simple test program similar called cfxxxramtest, makes sure the code all wires together successfully and that the empty tables can be find-all'ed.</li>
+<li>The base for the DbKeyHash implementations now uses a 64-bit ClusterCode instead of a 32-bit Machine Id.  This change is more than name, but in fundamental meaning, because in the Code Fractal world, a ClusterCode is a randomly generated value stored in the singleton SysCluster table.  This value is randomly generated on system install, and in the future will be submitted to a central server for registration.  But the only way I could automate such processing right now is through the use of my personal email account with one of my ISPs, and I don't think they'd appreciate the potential traffic flood (i.e. Part of setup is sending the registration information encrypted by some known public key so that my email account can decrypt it, verify the ClusterCode is unique and accept the registration, or detect the ClusterCode collision and find a free random one to use instead, and conditionally accept the registration with the proviso that the node change it's ClusterCode to the assigned id.  That way 99% of the time the _client_ produces the ClusterCode values, and the server only has to _register_ them.  The internal keys used for the "system" Cluster and "system" tenant are irrelevant, and will be unique to each cluster, as will the id of the "admin" account for the cluster. No easy "defaults" other than the initial "admin" password being a known string that gets changed on initial login.</li>
+<li>It turned out that no syntax errors cropped when rebuilding with JDK17, even though I thought the use of final statics in interfaces was a JDK25 feature. The downgrade from JDK25 syntax to JDK17 syntax is with the intent of using GWT for Spring for the user interfaces, so I may not be able to continue with the static finals when I'm relying on the GWT Java processor that translates pure JDK17 code to JavaScript in the client.  I have some ideas on how to go about mapping my JavaFX code to GWT code... and getting dynamic layout flow along the way!  It's just fortunate GWT at least supports JDK17; when I was first exposed to it's commercial relative, only JDK8 code was supported.</li>
+</ul>
+<p>
+NEXT UP: Bootstrap code for priming the CFSec database with the "system" cluster, SysCluster record, "system" tenant, and "admin" user for the cluster.  This also requires enhancing ICFSecSchema with static final AtomicReference<CFLibDbKeyHash256> hooks for SysClusterId, SysTenantId, and SysAdminId. The actual values will be different for each cluster, as the keys are randomly generated when th cluster is first initialized.
+<p>
+In the near future after the bootstrap code is in both the cfxxxjpatest and cfxxxramtest code and has been used to successfully bootstrap data for those implementations, the following items are on the "todo" list for the relatively near future. Don't worry, there is plenty more coming after that. I don't expect to be done coding my vision until the end of 2026Q3 at earliest, probably well into 2027Q1.
+<ul>
+<li>Rework the old cfxxxsaxramldr mains into Spring Boot applications and testing those; cfxxxramtest will provide the foundation of the updates. This requires a bootstrapped RAM database so the data can be loaded into it.  cfxxxsaxjpaldr mains will follow.</li>
+<li>Testing the Ram implementation with the existing HashMaps as much as I can.  I need it stable and reliable before I start working on the ConcurrentHashMap enhancements.</li>
+<li>Rework the Obj and Ram layers to use ConcurrentHashMap implementations instead of HashMap implementations.  I need the code to be maximally multi-threaded, and I've learned how to go about doing so on the last major job I worked - I spent about six months deep in the bowels of implementing generic caching with their code base, but what I carried away from it was a deep understanding of <i>how</i> to use ConcurrentHashMaps successfully. Part and parcel of this will be removing the @version tags from the revision attribute of the buffers and JPA objects, and manage those through fractal code to detect collisions and to decide which version of data to keep whenever trying to update the ConcurrentHashMap data records/buffers.</li>
+<li>Testing the Ram implementation with the ConcurrentHashMaps as much as I can.  I need it stable and reliable before I clone the relevant rules to the engine construction rule set used by CFCore.</li>
+<li>Clone the java rulebase so far for the mcf enging rulebase, remembering to rebranc it "mcf" instead of "msscf" as with the old code base. Tear it apart to focus <i>only</i> on the key pieces needed by CFCore, which does <i>not</i> include JPA storage and might not even incorporporate the interface approach I've used in the end, but map everything directly and explicitly to Buff implementations. We'll see; things changed a lot this go-round, and CFCore has some rather <i>specific</i> requirements that don't apply to the generic Ram storage, such as retaining the <i>instance</i> of the rules that are passed in, and returning those instances directly for queries, rather than returning clones of records.</li>
+<li>Revisiting the way I bind table and factory implementations to the schemas.  I envision a layered architecture going forward, where layers of schema code can wrap other layers of schema code, such as a generic variation of the Ram storage implementing a generic Cache that can be layered over a transport Buff or database JPA storage back end, which may in turn reference other layers. Right now you can only bind one to the framework, which is pretty much useless for dealing with the very real world situation of wanting a separate <i>session</i> cache for each user session that <i>isn't</i> shared across the code base, but still has to be located in a consistent and predictable fashion. I foresee a plethora of callbacks for hooking it all together the way I want things to function.  Note that only the session cache would have information about the ICFSecAuthorization reference for the user's session - everything else would have to locate the authentication to use via callbacks.</li>
+<li>Once the cfengine rule base is up to date for 3.1 and I'm content with the fractal portion of CFCore 3.1, it'll be time to carefully migrate and refresh the custom code aspects of CFCore from 2.13 to 3.1.  There are going to be a few significant changes, some of which I hope improve performance rather substantially.  Only then can I work on refreshing what was the "java+msscf" rules but which will be the "java+mcf" going forward.  Switching all references from MssCF to Mcf is one of the tasks for the CFCore migration.</li>
+<li>With CFCore done, it is now possible to produce the mcf layers for the three sub-projects, and to do the manual custom CFBamCustMcf code migrations.  A lot of the existing 2.13 code base won't be migrated, because it is repetitive boilerplate code for output customization that is hardwired to the schema and table objects. Going forward, those will by dynamically defined subobjects of the Schema and Table objects, with their name used in the resolution process by the knowledge base for 3.1 instead of hard-coded verbs. This will require a two-pass approach to initializing the engine before producing output for any models. Compiling the knowledge base provides the engine with the names of the expansion tags/verbs used for customizing the code, whether they are associated with schemas, tables, or both, and thereby providing the name resolution lookup data required to properly validate the models loaded into the system after the rules are primed.</li>
+</ul>
+</BODY>
+</HTML>
