@@ -29,14 +29,32 @@
 		</tr>
 </table>
 <p>
+Welcome to my project history page; there really has been only one project I've worked on since the late 90's other than
+projects for employers.  I recently decided to eliminate my initials from the name, and clarify that it is a code
+<i>fractal</i> rather than a "factory."  It doesn't "manufacture" anything but source code that is ready for integration,
+given a valid model and rule base defining how to map the model to code.
+<p>
+I invite you to read through the 2.11 documentation. Although seriously stale, most of the concepts described in that
+document are still valid to this day.
+<p>
+I'm currently refreshing and refactoring my code base to support generic Java clients, take advantage of the latest Java
+features, provide back-end Spring web services initially using JSON to replace the old XML message protocol, and later
+replacing JSON with a byte-stream client if at all feasible. Along the way, the databases have been split up into
+isolated instances with the Obj layer providing a unified view of the component database hierarchy. That way each data
+silo can retain control over its own security concerns, subject to unified identification and authorization of users
+through the CFSec packages and services at the bottom of the stack.
+<p>
+CFSec itself may well become an OAuth2 service provider by the time I'm done, too, which I don't expect to be for quite
+some time, possibly not before 2027.  As such, this code is very much in a state of flux.
+<p>
 <CENTER><H2>Table of Contents</H2></CENTER>
 <p>
 <table cols="1" width="50%" align="center">
-	<tr><td><p class=menu0><A HRef="about.html">About Mark Sobkow</A></td></tr>
 	<tr><td><p class=menu0><A HRef="mcf.html">Mark's Code Fractal</A></td></tr>
 	<tr><td><p class=menu1><A HRef="mcf-devlog.html">Development Log</A></td></tr>
+	<tr><td><p class=menu0><A HRef="about.html">About Mark Sobkow</A></td></tr>
 	<tr><td><p class=menu0><A HRef="msscf.html">MSS Code Factory - The Roots of the Fractal</A></td></tr>
-	<tr><td><p class=menu1><A HRef="documentation-2.11/index.html">Obsolete MSS Code Factory 2.11 Documentation</A></td></tr>
+	<tr><td><p class=menu1><A HRef="documentation-2.11/index.html">Dated MSS Code Factory 2.11 Documentation</A></td></tr>
 </table>
 <p>
 </BODY>
