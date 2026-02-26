@@ -54,11 +54,11 @@ Once you've cloned the repos, you need to set up your environment. For your .pro
 <code id="dotProfileText">
 export ANT_HOME=/opt/apache-ant-1.10.15
 export MAVEN_HOME=/opt/apache-maven-3.9.11
-export JFX_HOME=/usr/lib/jvm/javafx-sdk-25.0.1
+export JFX_HOME=/usr/lib/jvm/javafx-sdk-21.0.9
 export PATH_TO_FX=$JFX_HOME/lib
 
-export JAVA_HOME=/usr/lib/jvm/jdk-25.0.1+8
-export JDK_HOME=/usr/lib/jvm/jdk-25.0.1+8
+export JAVA_HOME=/usr/lib/jvm/jdk-17.0.17+10
+export JDK_HOME=/usr/lib/jvm/jdk-17.0.17+10
 export JAVA="$JDK_HOME/bin/java"
 export JAVAC="$JDK_HOME/bin/javac"
 export NETBEANS_HOME=/usr/lib/apache-netbeans/
@@ -81,8 +81,6 @@ Then we have some useful .bash_aliases, though they aren't required, just handy:
 alias ls='/usr/bin/ls -AC --classify=auto --group-directories-first '
 alias ll='/usr/bin/ls -l '
 alias initgit='eval "$(ssh-agent -s)"; ssh-add ~/.ssh/id_ed25519'
-alias ollamals="docker exec -it ollama ollama 'ls'"
-alias ollama="docker exec -it ollama ollama "
 alias cdkb='cd /opt/msscode/v2_13-maven/org.msscf.msscf.v2_13.cfkbase/src/main/resources'
 alias cdmsscf='cd /opt/msscode'
 alias cdmcf='cd /opt/mcf/v3_1/java'
