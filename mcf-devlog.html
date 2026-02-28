@@ -39,6 +39,7 @@ The following items have been finished recently.  At this point, the focus is on
 </ul>
 <p>
 <dl>
+<dt>2026-02-28 14:15</dt><dd>Refactored schema table security, added restore[tablename] and mutate[tablename] for tables with history and mutable tables, respectively.</dd>
 <dt>2026-02-28 09:05</dt><dd>Fleshed out the table bootstrap security for the top-level Cluster based security that decides if you <i>ever</i> have permission to do something. For tables that have Tenant security, I next need to populate the default security sysadmin permissions for the system tenant.  Log is at <A HRef="2026-02-28-09h05-BamTestsWithSecurityBootstrappingRunlog.txt">2026-02-28-09h05-BamTestsWithSecurityBootstrappingRunlog.txt</A></dd>
 <dt>2026-02-27 05:00</dt><dd>Added bin-v3_1/InstallRepos31.bash and bin-v2_13/InstallRepos213.bash to create the default install locations if install locations haven't been set and configured, and to install all of the repositories for the release as appropriate</dd>
 <dt>2026-02-27 01:00</dt><dd>Update of CFSec with initial bootstrap of CFInt and CFBam databases, runlog is here: <A HRef="2026-02-27-01h00-UpdateCFSecInitCFIntCFBamRunlog.txt">2026-02-27-01h00-UpdateCFSecInitCFIntCFBamRunlog.txt</A></dd>
