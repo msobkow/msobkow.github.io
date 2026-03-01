@@ -33,7 +33,7 @@ Creating cfsec31EntityManagerFactory with properties:
   jakarta.persistence.jdbc.user = postgres
   hibernate.show_sql = true
   jakarta.persistence.create-database-schemas = true
-  jakarta.persistence.jdbc.password = K0rumba
+  jakarta.persistence.jdbc.password = mypassword
   jakarta.persistence.schema-generation.create-source = metadata
 2026-02-28T09:04:28.387-06:00  INFO 202010 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: cfsec31PU]
 2026-02-28T09:04:28.438-06:00  INFO 202010 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 7.1.8.Final
@@ -1361,7 +1361,7 @@ Creating cfint31EntityManagerFactory with properties:
   jakarta.persistence.jdbc.user = postgres
   hibernate.show_sql = true
   jakarta.persistence.create-database-schemas = true
-  jakarta.persistence.jdbc.password = K0rumba
+  jakarta.persistence.jdbc.password = mypassword
   jakarta.persistence.schema-generation.create-source = metadata
 2026-02-28T09:04:30.039-06:00  INFO 202010 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: cfint31PU]
 2026-02-28T09:04:30.057-06:00  INFO 202010 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
@@ -2034,7 +2034,7 @@ Creating cfbam31EntityManagerFactory with properties:
   jakarta.persistence.jdbc.user = postgres
   hibernate.show_sql = true
   jakarta.persistence.create-database-schemas = true
-  jakarta.persistence.jdbc.password = K0rumba
+  jakarta.persistence.jdbc.password = mypassword
   jakarta.persistence.schema-generation.create-source = metadata
 2026-02-28T09:04:30.344-06:00  INFO 202010 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: cfbam31PU]
 2026-02-28T09:04:30.407-06:00  INFO 202010 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
