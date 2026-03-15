@@ -45,7 +45,7 @@ Therefore the cfcore, various *bam* packages, and knowledge base are released un
 <p>
 Currently the repositories provide the complete set of source code, models, and rule bases from MSS Code Factory 2.13 under the logical domain "org.msscf", which doesn't actually exist.  The copyright is not based on the domain, however, but on my name and contact information. In the bin-v2_13 repository are a number of scripts which can be used to set up a code factory environment. For example, I have my source trees for mcf and msscode under /opt/mcf and /opt/msscode respectively, with symbolic links from my home directory to those directories. I recommend creating /opt/msscode/v2_13-maven and cloning the various *2_13* repositories under there.
 <p>
-All of the io.github.msobkow repositories are for Mark's Code Factory 3.1, which is emphatically a work in progress and currently consists of untested and unverified code that mostly clean compiles. Those should be cloned under /opt/mcf/v3_1/java/ (trust me on the directory hierarchy; that's how the output gets laid out by the tool.)
+All of the server.markhome.mcf repositories are for Mark's Code Factory 3.1, which is emphatically a work in progress. Those should be cloned under /opt/mcf/v3_1/java/ (trust me on the directory hierarchy; that's how the output gets laid out by the tool.)
 <p>
 Here are a couple scripts to make things easier: <A HRef="InstallRepos213.bash">InstallRepos213.bash</A> and <A HRef="InstallRepos31.bash">InstallRepos31.bash</A>
 <p>
@@ -54,16 +54,23 @@ Yes, it is a lot of repositories, and a lot more are coming over the next few mo
 Once you've cloned the repos, you need to set up your environment. For your .profile, you need something like this:
 <pre>
 <code id="dotProfileText">
+export NETBEANS_HOME=/usr/lib/apache-netbeans/
 export ANT_HOME=/opt/apache-ant-1.10.15
-export MAVEN_HOME=/opt/apache-maven-3.9.11
+if [ -d $NETBEANS_HOME/java/maven ]; then
+	export MAVEN_HOME=$NETBEANS_HOME/java/maven
+else
+	export MAVEN_HOME=/opt/apache-maven-3.9.11
+fi
 export JFX_HOME=/usr/lib/jvm/javafx-sdk-21.0.9
 export PATH_TO_FX=$JFX_HOME/lib
 
-export JAVA_HOME=/usr/lib/jvm/jdk-17.0.17+10
-export JDK_HOME=/usr/lib/jvm/jdk-17.0.17+10
+export NEXUS_HOME=/opt/nexus-3.89.0-09
+export JAVA_HOME=/usr/lib/jvm/jdk-21.0.10+7
+export JDK_HOME=/usr/lib/jvm/jdk-21.0.10+7
+#export JAVA_HOME=$NEXUS_HOME/jdk/temurin_21.0.9_10_linux_x86_64/jdk-21.0.9+10
+#export JDK_HOME=$NEXUS_HOME/jdk/temurin_21.0.9_10_linux_x86_64/jdk-21.0.9+10
 export JAVA="$JDK_HOME/bin/java"
 export JAVAC="$JDK_HOME/bin/javac"
-export NETBEANS_HOME=/usr/lib/apache-netbeans/
 
 export MSSCF_HOME=/opt/msscode
 export MSSCFHOME=$MSSCF_HOME
@@ -73,7 +80,7 @@ export JSEP=":"
 export PSEP=":"
 export DSEP="/"
 
-export PATH=/home/msobkow/bin:$MCF_HOME/bin-v3_1:$MSSCF_HOME/v3_1-maven/java/bin-v3_1:$MSSCF_HOME/v2_13-maven/bin-v2_13:$MSSCF_HOME/v2_12/bin:$JDK_HOME/bin:$JDK_HOME/lib:$PATH_TO_FX:$MAVEN_HOME/bin:$MAVEN_HOME/lib:$ANT_HOME/bin:$ANT_HOME/lib:$NETBEANS_HOME/bin:/usr/sbin:$PATH
+export PATH=/home/msobkow/bin:$MCF_HOME/bin-v3_1:$MSSCF_HOME/v3_1-maven/java/bin-v3_1:$MSSCF_HOME/v2_13-maven/bin-v2_13:$MSSCF_HOME/v2_12/bin:$JDK_HOME/bin:$JDK_HOME/lib:$NEXUS_HOME/bin:$PATH_TO_FX:$MAVEN_HOME/bin:$MAVEN_HOME/lib:$ANT_HOME/bin:$ANT_HOME/lib:$NETBEANS_HOME/bin:/usr/sbin:$PATH
 </code>
 </pre>
 <p>
@@ -87,6 +94,10 @@ alias cdkb='cd /opt/msscode/v2_13-maven/org.msscf.msscf.v2_13.cfkbase/src/main/r
 alias cdmsscf='cd /opt/msscode'
 alias cdmcf='cd /opt/mcf/v3_1/java'
 alias lsd="/usr/bin/ls -A --classify=always . | grep '.*/$';/usr/bin/ls -A --classify=always . | grep '.*@$'"
+alias lsl='/usr/bin/ls -l '
+alias lsk='/usr/bin/ls -l --block-size=K '
+alias lsg='/usr/bin/ls -l --block-size=G '
+alias lsm='/usr/bin/ls -l --block-size=M '
 </code>
 </pre>
 <p>
