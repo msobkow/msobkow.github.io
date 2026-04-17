@@ -35,6 +35,7 @@ At this point, the focus is on getting the core of the Fractal engine up and run
 <p>
 The security model has been refactored and is ready to have the enforcement code written. The 2.0.13 implementation of code customization through the SchemaTweak and TableTweak sub-objects of the schemas and tables in a model, and the parsing and compiling of the schematweak and tabletweak GEL verbs has been added to the GEL compiler. I expected the tweak task to take longer than it did.
 <dl>
+<dt>2026-04-17 15:10 CST</dt><dd>The creation of the v3_1 CFSec tables is now sane, and the security tables get primed, with hundreds of entries in the case of cfbamjpatest runs.</dd>
 <dt>2026-04-16 22:40 CST</dt><dd>Tweaked the security scope of part of the CFSec model, rebuilt v3_1.</dd>
 <dt>2026-04-13 00:50 CST</dt><dd>Added the verb DefSchemaTables to 2.0.13 which iterates the tables defined by that particular schema. The 3.1 I[CFSec|CFInt|CFBam]Schemas have had getTableInfo() and getCompositeTableInfo() added to them, with the latter used for the top-most schema to pass down a consolidated list of table information to the CFSec implementation of schema initialization.</dd>
 <dt>2026-04-12 17:50 CST</dt><dd>The security and table bootstraps finally clean compile, but I'm not satisfied yet - I want the entire set of table security information to commit as a single transaction on startup.</dd>
