@@ -35,6 +35,7 @@ At this point, the focus is on getting the core of the Fractal engine up and run
 <p>
 The security model has been refactored and is ready to have the enforcement code written. The 2.0.13 implementation of code customization through the SchemaTweak and TableTweak sub-objects of the schemas and tables in a model, and the parsing and compiling of the schematweak and tabletweak GEL verbs has been added to the GEL compiler. I expected the tweak task to take longer than it did.
 <dl>
+<dt>2026-04-20 19:00 CST</dt><dd>Wired in the complete support for indextweak specializations so you can customize security checks on (for example) table read by index. Initial JPA security sketching rules have been laid out, but most of the methods don't use the new expansions yet to enforce security.</dd>
 <dt>2026-04-19 12:20 CST</dt><dd>Brought the IndexTweak forward from the 2.0.13 model to the 3.1 model and updated the fractal code.</dd>
 <dt>2026-04-19 01:20 CST</dt><dd>Add the IndexTweak and IndexAddendum types and references to the mssbam-2.13.xsd specification as appropriate, validate the XSD. IndexAddendum uses a special 385 character reference to TableName.IndexName within the schema.</dd>
 <dt>2026-04-18 23:40 CST</dt><dd>Added IndexTweak to the CFBam 2.13 model, remanufactured.</dd>
