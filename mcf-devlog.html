@@ -37,6 +37,7 @@ I'm currently working on properly fleshing out CFSec's back-end security models 
 <p>
 As of 2026-05-03 07:00 CST, there are 4,392,564 lines of code to 3.1.
 <dl>
+<dt>2026-05-03 13:10 CST</dt><dd>Added verb SchemaDef.OrderedRoles to custom engine, iterates roles in dependency order (who enables/includes who.)</dd>
 <dt>2026-05-03 05:50 CST</dt><dd>Brought forward the Role definitions from 2.0.13 to 3.1 for CFBam, refreshed the 3.1 projects accordingly.</dd>
 <dt>2026-05-03 05:40 CST</dt><dd>Tweaked the specifications of SchemaRole in CFBam 2.0.13. The custom XmlParser for 2.0.13 has been updated accordingly, but I need a custom verb that sorts the roels in dependency order instead of the random order they're defined by.</dd>
 <dt>2026-05-01 12:35 CST</dt><dd>With regards to the knowledge base enhancements, I've decided that I will not implement complex create, update, and delete methods for the SecRole objects after all. I will implement the validation of the SecRole.MembershipString value. This implies that roles have to be created from the bottom up to form a dependency tree of memberships.</br>
