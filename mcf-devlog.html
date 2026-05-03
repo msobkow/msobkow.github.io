@@ -34,6 +34,8 @@
 At this point, the focus is on getting the core of the Fractal engine up and running on the latest and greatest code base, but in multi-threaded, re-entrant, distributed form suitable for deployment within a large multi-core web server environment.  The code base was both JDK17 and JDK25 compatible, but it is now being built using Eclipse Temurin JDK 25.
 <p>
 I'm currently working on properly fleshing out CFSec's back-end security models and implementation. I've got the system, cluster, and tenant security groups, members, and include groups defined and crudely populated at this point, as well as the concept of a "role" as well, with CustRole and TentRole variants that reference the Sec(Sys)Role. There are both SecurityService and SecurityControl interfaces defined, and a hook for an implementation to be registered in ICFSecSchema for use by the application code. I'll be adding a base cache implementation to the cfsec.cfsec package that implements a number of methods as throwing "NotImplementedYet" exceptions, which will then be specialized in cfsec.cfsecbuff.CFSecBuffSecurityCache and cfsec.cfsecjpa.CFSecJpaSecurityCache, each of which gets wired as appropriate prior to any other database access.
+<p>
+As of 2026-05-03 07:00 CST, there are 4,392,564 lines of code to 3.1.
 <dl>
 <dt>2026-05-03 05:50 CST</dt><dd>Brought forward the Role definitions from 2.0.13 to 3.1 for CFBam, refreshed the 3.1 projects accordingly.</dd>
 <dt>2026-05-03 05:40 CST</dt><dd>Tweaked the specifications of SchemaRole in CFBam 2.0.13. The custom XmlParser for 2.0.13 has been updated accordingly, but I need a custom verb that sorts the roels in dependency order instead of the random order they're defined by.</dd>
