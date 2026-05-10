@@ -23,7 +23,7 @@
 </H1></CENTER>
 <p>
 <table cols="3" width="95%" align="center">
-	<tr><td align="left"><A HRef="mcf-v3_1-security.html">Prev</A></td>
+	<tr><td align="left"><A HRef="mcf-lessonslearned.html">Prev</A></td>
 		<td align="center"><A HRef="index.html">Home</A></td>
 		<td align="right"><A HRef="about.html">Next</A></td>
 		</tr>
@@ -37,6 +37,7 @@ I'm currently working on properly fleshing out CFSec's back-end security models 
 <p>
 As of 2026-05-03 07:00 CST, there are 4,392,564 lines of code to 3.1.
 <dl>
+<dt>2026-05-10 02:45 CST</dt><dd>Added page mcf-lessonslearned.html to the documentation (the one previous to this development log in the updated website navigation.)</dd>
 <dt>2026-05-08 20:15 CST</dt><dd>JPA Test wires an instance of the security schema's JPA Security Cache to the system, which routes the invocations of the back end to the methods stubbed in the security schema service. Rather than worrying about interest registration or cache forgetting at this time, I'll be working on the back end queries for those methods instead.</dd>
 <dt>2026-05-08 01:45 CST</dt><dd>Fleshed out the most important aspects of the abstract SecurityCache; still need to do the registration handling and forget processing, not to mention time based expirations. The probes in the JPA implementation are just NotImplementedYet exception throwers. PostgreSQL bumped to 42.7.11.</dd>
 <dt>2026-05-05 05:55 CST</dt><dd>What an interest time of day to be checking in the SecurityCache base implementation and a JpaSecurityCache specialization. Both are just stubs that throw NotImplementedYet exceptions for everything, but I wanted to get started.</dd>
