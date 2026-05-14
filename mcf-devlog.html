@@ -37,6 +37,7 @@ I'm currently working on properly fleshing out CFSec's back-end security models 
 <p>
 As of 2026-05-03 07:00 CST, there are 4,392,564 lines of code to 3.1.
 <dl>
+<dt>2026-05-14 02:55 CST</dt><dd>It has been a very long day with a lot of syntax errors for complex union queries fixed, pass-through of Authorization objects stubbed, and new exceptions thrown by the bootstrap code that didn't used to happen before I started fleshing things out, which is actually good to see - it is reminding me to finish certain fragments of code.</dd>
 <dt>2026-05-10 02:45 CST</dt><dd>Added page mcf-lessonslearned.html to the documentation (the one previous to this development log in the updated website navigation.)</dd>
 <dt>2026-05-08 20:15 CST</dt><dd>JPA Test wires an instance of the security schema's JPA Security Cache to the system, which routes the invocations of the back end to the methods stubbed in the security schema service. Rather than worrying about interest registration or cache forgetting at this time, I'll be working on the back end queries for those methods instead.</dd>
 <dt>2026-05-08 01:45 CST</dt><dd>Fleshed out the most important aspects of the abstract SecurityCache; still need to do the registration handling and forget processing, not to mention time based expirations. The probes in the JPA implementation are just NotImplementedYet exception throwers. PostgreSQL bumped to 42.7.11.</dd>
