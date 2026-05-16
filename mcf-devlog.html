@@ -37,6 +37,7 @@ I'm currently working on properly fleshing out CFSec's back-end security models 
 <p>
 As of 2026-05-03 07:00 CST, there are 4,392,564 lines of code to 3.1.
 <dl>
+<dt>2026-05-16 02:55 CST</dt><dd>Debugged the security framework back to the point I'd previously been; my named queries and their invocation worked right from the get-go. Nice to see.</dd>
 <dt>2026-05-15 23:15 CST</dt><dd>The setPKey() methods now invoke the appropriate SuperiorCandidatePrimaryKeyRelation setter if it is a Container relation.  I still need to rename the relationship columns in those cases so they don't collide with the @Id or @EmbeddedId attributes.</dd>
 <dt>2026-05-15 15:25 CST</dt><dd>Stubbed in the Clus and Tent probes of the security tables, which will look for the hierarchy definition in the SecSys tables, but membership in the Clus tables.</dd>
 <dt>2026-05-15 11:40 CST</dt><dd>Wired the cascading set-to-value or clear-to-null as applicable for the Container superior primary key relationships. Next I need to modify setPKey(val) in such cases so that the setter for the relationship-by-keyval is invoked instead of directly setting the pkey attribute. Also, the PKey attributes of the relationship in question need to use different names than are defined for the database columns, so that twin columns appear in the database, but with coordinated values. If both share the same column name, it turns out JPA isn't smart enough to coalesce them into a single column definition.</dd>
