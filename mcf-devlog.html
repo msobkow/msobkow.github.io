@@ -37,6 +37,7 @@ I'm currently working on properly fleshing out CFSec's back-end security models 
 <p>
 As of 2026-05-03 07:00 CST, there are 4,392,564 lines of code to 3.1.
 <dl>
+<dt>2026-05-18 02:50 CST</dt><dd>Finally got the syntax worked out for those hairy 8 way security joins for clusters and tenants; HQL sure is picky!</dd>
 <dt>2026-05-16 22:00 CST</dt><dd>Removed the SecClusGrpInc and SecTentGrpInc tables and references from the CFSec model and special case rules. Trying to allow for joins of those tables would have resulted in insanely complex JQL statements; even the 8-way joins that are done for the SysGrpInc table stress most database engines.</dd>
 <dt>2026-05-16 02:55 CST</dt><dd>Debugged the security framework back to the point I'd previously been; my named queries and their invocation worked right from the get-go. Nice to see.</dd>
 <dt>2026-05-15 23:15 CST</dt><dd>The setPKey() methods now invoke the appropriate SuperiorCandidatePrimaryKeyRelation setter if it is a Container relation.  I still need to rename the relationship columns in those cases so they don't collide with the @Id or @EmbeddedId attributes.</dd>
