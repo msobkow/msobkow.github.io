@@ -34,6 +34,7 @@ I'm currently working on properly fleshing out CFSec's back-end security models 
 <p>
 As of 2026-05-03 07:00 CST, there are 4,392,564 lines of code to 3.1.
 <dl>
+<dt>2026-06-02 19:45 CST</dt><dd>cfbamjpatest now runs clean as well. Next I need to deal with my role code and queries.</dd>
 <dt>2026-06-02 14:30 CST</dt><dd>Finally a clean run of cfsecjpatest, but cfbamjpatest fails.</dd>
 <dt>2026-06-01 12:55 CST</dt><dd>Replace MembershipString of a Role definition in CFBam with Enables and Includes text strings, maxlen 2000000, required. Enables is not allowed to be empty. Update specification of CFSec 3.1 and the sample role specifications in that model correspondingly. Knowledge base for 2.13/3.0 updated accordingly, and the 3.1 code is producing the appropriate new code. Currently the cfsecjpatest runs to the point of trying to obtain a count on Clus security membership and failing. The syntax of the query is valid, but not evaluating properly. The System probes work okay, so I know you can auto-bind a count to a Long the way it does with the query compilation and access, but there must be an issue with the Clus query. I'm going to try to embed the resolution of the Cluster objects into the query itself now that the queries clean-check, so that there is no query-nesting going on - I suspect that is what is confusing JPA.</dd>
 <dt>2026-05-31 09:40 CST</dt><dd>Some cleanup on the JPA code.</dd>
