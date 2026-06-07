@@ -99,7 +99,11 @@ features, provide back-end Spring web services initially using JSON to replace t
 replacing JSON with a byte-stream client if at all feasible. Along the way, the databases have been split up into
 isolated instances with the Obj layer providing a unified view of the component database hierarchy. That way each data
 silo can retain control over its own security concerns, subject to unified identification and authorization of users
-through the security schema (CFSec) packages and services at the bottom of the stack.
+through the security schema (CFSec) packages and services at the bottom of the stack.  Check the development log below
+for details about the progress on the 3.1 code base to date.  Remember that while the 3.1 code base is not complete, you
+certainly can define a custom application model, produce fractal code for it using the same rules, and have a preview of the
+3.1-compliant code for your model. Just remember to reference the CFSec security schema before anything else in your custom
+application model (BAM.)
 <p>
 The security schema itself may well become an OAuth2 service provider by the time I'm done, too, which I don't expect to be for quite
 some time, possibly not before 2027.  As such, this code is very much in a state of flux.
