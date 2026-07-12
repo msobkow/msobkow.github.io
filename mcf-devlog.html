@@ -38,6 +38,7 @@ After I'm done the new interface and implementation/wrapper/filter layers, the f
 <p>
 As of 2026-07-09 03:45 CST, there were 5,049,389 lines of clean-compiling code in the ever-growing 3.1 code base.
 <dl>
+<dt>2026-07-11 23:50 CST</dt><dd>The issues with the default method implementations for setting the private interface relationships via pub and prot record/buffer instances instead of private instances has been completed; that set of build errors is gone. Now only the expected complaints about unimplemented methods in the factories remain, though I know complaints from other aspects of the code are likely to follow. Calling it a night.</dd>
 <dt>2026-07-11 19:40 CST</dt><dd>MSS Code Factory 2.13 tweaked the various isPublic/Protected/Private and Specifically variants on Protected and Private; much happier with the code produced now, though I still have issues and bugs in it.</dd>
 <dt>2026-07-11 18:50 CST</dt><dd>MSS Code Factory 2.13 updated with IsSpecificallyProtected and IsSpecificallyPrivate verbs, logic for IsPublic, IsProtected, and IsPrivate reworked.</dd>
 <dt>2026-07-11 15:15 CST</dt><dd>Working on fleshing out the private table interfaces; I need to propagate one of the default method implementations in the private table object interface to a similar default implementation for the protected table object interface.</dd>
