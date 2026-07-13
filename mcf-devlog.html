@@ -38,6 +38,7 @@ After I'm done the new interface and implementation/wrapper/filter layers, the f
 <p>
 As of 2026-07-09 03:45 CST, there were 5,049,389 lines of clean-compiling code in the ever-growing 3.1 code base.
 <dl>
+<dt>2026-07013 01:40 CST</dt><dd>I am content; 2.13 now produces a proper set of Enum type references in cfsec.cfsec - the stray reference to the private schema interface has been cleaned up.</dd>
 <dt>2026-07-12 23:50 CST</dt><dd>MSS Code Factory 2.13 has been updated, but the updates didn't fix the fundamental problems I'm having with navigating to the correct schema interface for an enum type specification. One of the issues is the code and the knowledge base were making different assumptions about visibility of type specifications.</dd>
 <dt>2026-07-12 22:55 CST</dt><dd>A great deal of progress has been made on cfsec.cfsec today, and cfsec.cfsecprot now clean compiles.</dd>
 <dt>2026-07-12 07:45 CST</dt><dd>At this point, the Enum specifications should now be properly isolated to and accessed via the three layers of schema interfaces, depending on the CodeVis of the EnumType specification. There may be an issue in the actual code for the isPublic() et al methods in the custom MssCFBam code for 2.13, but if so, there will be all the enums in pub, even though they are expected elsewhere.</dd>
