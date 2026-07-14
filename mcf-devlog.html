@@ -38,6 +38,7 @@ After I'm done the new interface and implementation/wrapper/filter layers, the f
 <p>
 As of 2026-07-09 03:45 CST, there were 5,049,389 lines of clean-compiling code in the ever-growing 3.1 code base.
 <dl>
+<dt>2026-07-13 23:50 CST</dt><dd>Most of the enhancements to support the public and protected interfaces in the buffer table objects has been coded, but it exposes some issues with the table object interface specifications, which don't have setters for those interfaces, but need to support them. The code in the <i>implementation</i> exists; I'm just missing the signatures in the <i>interfaces</i> for them.</dd>
 <dt>2026-07-13 11:45 CST</dt><dd>Just a work in progress check in because I have other things to do today before I can get back to coding.</dd>
 <dt>2026-07013 01:40 CST</dt><dd>I am content; 2.13 now produces a proper set of Enum type references in cfsec.cfsec - the stray reference to the private schema interface has been cleaned up.</dd>
 <dt>2026-07-12 23:50 CST</dt><dd>MSS Code Factory 2.13 has been updated, but the updates didn't fix the fundamental problems I'm having with navigating to the correct schema interface for an enum type specification. One of the issues is the code and the knowledge base were making different assumptions about visibility of type specifications.</dd>
