@@ -38,6 +38,7 @@ After I'm done the new interface and implementation/wrapper/filter layers, the f
 <p>
 As of 2026-07-09 03:45 CST, there were 5,049,389 lines of clean-compiling code in the ever-growing 3.1 code base.
 <dl>
+<dt>2026-07-17 18:50 CST</dt><dd>Making good progress on the buff objects right now, slowly fleshing out the comparators for PKeys and HPKeys so far, and introducing a whole slew of new errors as progress gets made and old errors get resolved with the changes. I am content with the day, and think I might call an end to it seeing as it is a Friday night.</dd>
 <dt>2026-07-16 18:50 CST</dt><dd>I am pretty happy with the state of the base PKeys now; I've fleshed out compareTo(Object) and equals(Object) to support the new layers, and removed the explicit specification of Comparable{PKey} from the object, replacing it with Comparable{Object} (and if I didn't remember to do that I'll have to do it soon. Here's hoping that doesn't break same arcane JPA requirement.)</dd>
 <dt>2026-07-15 18:40 CST</dt><dd>Tweaked the Any code for the SpecificallyPrivate and SpecificallyProtected calculations.</dd>
 <dt>2026-07-15 18:05 CST</dt><dd>Clean run of manufacturing 3.1, with no effective changes, but EffCodeVisSchemaPrefix is now EffCodeVisPrefix, and TableCodeVisPrefix, IndexCodeVisPrefix, and RelationCodeVisPrefix have been added, as well as SchemaName variants on the Prefix. Now to get back to work on enhancing the Buff code...</dd>
