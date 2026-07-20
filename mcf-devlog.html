@@ -38,6 +38,7 @@ After I'm done the new interface and implementation/wrapper/filter layers, the f
 <p>
 As of 2026-07-09 03:45 CST, there were 5,049,389 lines of clean-compiling code in the ever-growing 3.1 code base.
 <dl>
+<dt>2026-07-20 01:45 CST</dt><dd>Remove spurious comparisons to non-existent ProtPKey for compareTo operations; there were actually two comparisons to that class that would have been produced, resulting in compile errors in later layers, had cfsec.cfsec not already failed to build.</dd>
 <dt>2026-07-20 01:15 CST</dt><dd>Cleaned up the imports for the buffer history objects.</dd>
 <dt>2026-07-18 02:50 CST</dt><dd>I've made excellent progress tonight, though I'm far from done with my information hiding efforts. It'll come in due time. But enough for tonight.</dd>
 <dt>2026-07-18 01:35 CST</dt><dd>Making good progress; have variants on Prot/Pub relation setters now. Should be a HUGE code change in MCF 3.1...</dd>
