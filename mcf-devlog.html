@@ -38,6 +38,7 @@ After I'm done the new interface and implementation/wrapper/filter layers, the f
 <p>
 As of 2026-07-09 03:45 CST, there were 5,049,389 lines of clean-compiling code in the ever-growing 3.1 code base.
 <dl>
+<dt>2026-07-25 08:10 CST</dt><dd>The issue of spurious column setter declarations in tables has been resolved; the table interfaces now only specify column setters if the column isn't in a Superior relationship for the table for all table column specifications.</dd>
 <dt>2026-07-25 00:35 CST</dt><dd>Replaced declRecInheritSuper with declInheritSuper in Table.extendSchemaRecTableRecSuperRec rule in ISchemaTable.java.xml</dd>
 <dt>2026-07-24 18:30 CST</dt><dd>The rule base is coming along nicely, though there are several non-factory-service errors I'm currently dealing with for cfsec.cfsec.<pre>
     {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffTenant.java:[51,8] server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffTenant is not abstract and does not override abstract method setRequiredClusterId(server.markhome.mcf.v3_1.cflib.dbutil.CFLibDbKeyHash256) in server.markhome.mcf.v3_1.cfsec.cfsec.ICFSecTenant
