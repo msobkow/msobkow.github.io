@@ -38,6 +38,31 @@ After I'm done the new interface and implementation/wrapper/filter layers, the f
 <p>
 As of 2026-07-09 03:45 CST, there were 5,049,389 lines of clean-compiling code in the ever-growing 3.1 code base.
 <dl>
+<dd>2026-07-24 18:30 CST</dd><dt>The rule base is coming along nicely, though there are several non-factory-service errors I'm currently dealing with for cfsec.cfsec.<pre>
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffTenant.java:[51,8] server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffTenant is not abstract and does not override abstract method setRequiredClusterId(server.markhome.mcf.v3_1.cflib.dbutil.CFLibDbKeyHash256) in server.markhome.mcf.v3_1.cfsec.cfsec.ICFSecTenant
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffTableInfo.java:[51,8] server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffTableInfo is not abstract and does not override abstract method setOptionalSuperName(java.lang.String) in server.markhome.mcf.v3_1.cfsec.cfsec.ICFSecTableInfo
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSysCluster.java:[51,8] server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSysCluster is not abstract and does not override abstract method setRequiredClusterId(server.markhome.mcf.v3_1.cflib.dbutil.CFLibDbKeyHash256) in server.markhome.mcf.v3_1.cfsec.cfsec.ICFSecSysCluster
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecUserPWReset.java:[1060,17] no suitable method found for setRequiredContainerUser(server.markhome.mcf.v3_1.cfsec.cfsecprot.ICFSecProtSecUser)
+    {ERROR}     method server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSecUserPWReset.setRequiredContainerUser(server.markhome.mcf.v3_1.cfsec.cfsec.ICFSecSecUser) is not applicable
+    {ERROR}       (argument mismatch; server.markhome.mcf.v3_1.cfsec.cfsecprot.ICFSecProtSecUser cannot be converted to server.markhome.mcf.v3_1.cfsec.cfsec.ICFSecSecUser)
+    {ERROR}     method server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSecUserPWReset.setRequiredContainerUser(server.markhome.mcf.v3_1.cflib.dbutil.CFLibDbKeyHash256) is not applicable
+    {ERROR}       (argument mismatch; server.markhome.mcf.v3_1.cfsec.cfsecprot.ICFSecProtSecUser cannot be converted to server.markhome.mcf.v3_1.cflib.dbutil.CFLibDbKeyHash256)
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecUserEMConf.java:[1269,17] no suitable method found for setRequiredContainerUser(server.markhome.mcf.v3_1.cfsec.cfsecprot.ICFSecProtSecUser)
+    {ERROR}     method server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSecUserEMConf.setRequiredContainerUser(server.markhome.mcf.v3_1.cfsec.cfsec.ICFSecSecUser) is not applicable
+    {ERROR}       (argument mismatch; server.markhome.mcf.v3_1.cfsec.cfsecprot.ICFSecProtSecUser cannot be converted to server.markhome.mcf.v3_1.cfsec.cfsec.ICFSecSecUser)
+    {ERROR}     method server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSecUserEMConf.setRequiredContainerUser(server.markhome.mcf.v3_1.cflib.dbutil.CFLibDbKeyHash256) is not applicable
+    {ERROR}       (argument mismatch; server.markhome.mcf.v3_1.cfsec.cfsecprot.ICFSecProtSecUser cannot be converted to server.markhome.mcf.v3_1.cflib.dbutil.CFLibDbKeyHash256)
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecUser.java:[2071,41] cannot find symbol
+    {ERROR}   symbol:   class ICFSecPubSecUserByEMAddrIdxKey
+    {ERROR}   location: class server.markhome.mcf.v3_1.cfsec.cfsec.buff.CFSecBuffSecUser
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecTentRoleMemb.java:[146,9] method does not override or implement a method from a supertype
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecTentRoleMemb.java:[160,9] method does not override or implement a method from a supertype
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecTentRoleMemb.java:[165,9] method does not override or implement a method from a supertype
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecTentRoleMemb.java:[176,9] method does not override or implement a method from a supertype
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecTentRoleMemb.java:[181,9] method does not override or implement a method from a supertype
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecTentRoleMemb.java:[195,9] method does not override or implement a method from a supertype
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecTentRoleMemb.java:[200,9] method does not override or implement a method from a supertype
+    {ERROR} /opt/mcf/v3_1/java/server.markhome.mcf.v3_1.cfsec.cfsec/src/main/java/server/markhome/mcf/v3_1/cfsec/cfsec/buff/CFSecBuffSecTentRoleMemb.java:[211,9] method does not override or implement a method from a supertype</pre></dd>
 <dt>2026-07-24 15:40 CST</dt><dd>The primary key relation settings have been tweaked for the buffers, and now I need to propagate those implementation changes to the interface specifications for the object so that the proper signatures are defined for the implementation. It may be necessary to propagate the changes to the interfaces defined for Pub and Prot as well.</dd>
 <dt>2026-07-24 12:55 CST</dt><dd>Revert to code produced by reversion of HEAD for org.msscf.msscf.v2_13.cfkbase to commit 6983d68 (one commit previous)</dd>
 <dt>2026-07-24 05:35 CST</dt><dd>Work in progress; I've got the rules running, but with different build errors. Progress at least.</dd>
