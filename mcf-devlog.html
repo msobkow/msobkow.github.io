@@ -44,6 +44,7 @@ Once I'm done with the ConcurrentHashMap changes for the Obj layer, then ProtObj
 <p>
 As of 2026-07-09 03:45 CST, there were 5,049,389 lines of clean-compiling code in the ever-growing 3.1 code base.
 <dl>
+<dt>2026-08-05 13:45 CST</dt><dd>Still no joy, but a lot of knowledge base tweaking.</dd>
 <dt>2026-08-05 12:55 CST</dt><dd>The getters are fixed, now I see the undeclared setter errors for the protected primary keys. Most likely they're not being expanded via setDirect, but by a version of the rules that checks for superior relationships and skips the setter if they exist. Simple enough to fix, but not right now - I want to save away this almost clean compiling version of the Prot layer first.</dd>
 <dt>2026-08-05 12:00 CST</dt><dd>Working of the direct value getter implementations; they're returning an empty statement that causes compile errors. Somewhere I've got the wrong expansion name being used, because the method is being declared properly, it is just the return statement in error. What is really confusing is the setter is correct, so the DirectSetter implementations are coded properly, but the Getters are in error.</dd>
 <dt>2026-08-03 19:50 CST</dt><dd>That's enough of this nonsense for today. I'm getting frustrated, which means it's time to call an end to it after 10+ hours at the keyboard. I'm done until tomorrow.</dd>
