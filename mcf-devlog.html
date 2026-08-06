@@ -44,6 +44,7 @@ Once I'm done with the ConcurrentHashMap changes for the Obj layer, then ProtObj
 <p>
 As of 2026-07-09 03:45 CST, there were 5,049,389 lines of clean-compiling code in the ever-growing 3.1 code base.
 <dl>
+<dt>2026-08-06 06:00 CST</dt><dd>All the _statements_ needed get produced, but many of the getters and setters reference S_INIT values that aren't available where I need them to be. I'll figure it out eventually; one key factor might be to switch to direct getters and setters instead of pkey wrappers, at least for the pkeys themselves.</dd>
 <dt>2026-08-05 18:00 CST</dt><dd>At long last the Prot layer compiles, but now I get errors in the base layer because of the changes I made to fix the issues along the way. I'll have to retrofit my changes accordingly.</dd>
 <dt>2026-08-05 13:45 CST</dt><dd>Still no joy, but a lot of knowledge base tweaking.</dd>
 <dt>2026-08-05 12:55 CST</dt><dd>The getters are fixed, now I see the undeclared setter errors for the protected primary keys. Most likely they're not being expanded via setDirect, but by a version of the rules that checks for superior relationships and skips the setter if they exist. Simple enough to fix, but not right now - I want to save away this almost clean compiling version of the Prot layer first.</dd>
