@@ -44,6 +44,7 @@ Once I'm done with the ConcurrentHashMap changes for the Obj layer, then ProtObj
 <p>
 As of 2026-07-09 03:45 CST, there were 5,049,389 lines of clean-compiling code in the ever-growing 3.1 code base.
 <dl>
+<dt>2026-08-14 17:30 CST</dt><dd>Steps forward, steps backwards, but at least steps of <i>progress</i> are being made.</dd>
 <dt>2026-08-14 10:30 CST</dt><dd>Despite much effort, I'm still seeing duplicate method definitions for some objects and missing implementations for other objects. There is definitely a logic error to be figured out somewhere, but I guess it is going to take a fair amount of time to do.</dd>
 <dt>2026-08-14 04:20 CST</dt><dd>There are a bunch of duplicate methods defined in the base layer buffer records right now, which I'll have to chase down, but it is worth noting that means that all the methods are finally properly defined by those objects; no other errors are reported for those .java files.</dd>
 <dt>2026-08-13 20:30 CST</dt><dd>I need to dereference the correct variant of Schema, either Pub or normal, when evaluating the target readDerivedBlah() invocations. The pub prefixing of those invocations is correct, but I need to wire in the appropriate hooks to dereference the Normal schema or the Pub schema before retrieving the named table interface from it. At this time there are 5,280,672 lines of code in the 3.1 code base, an increase of 231,283 lines in only 36 days, for an average of 6,424 new lines of clean-compiling code per day. Just watch me go: I'll definitely get there eventually!</dd>
