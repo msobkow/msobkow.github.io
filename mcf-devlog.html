@@ -44,6 +44,7 @@ Once I'm done with the ConcurrentHashMap changes for the Obj layer, then ProtObj
 <p>
 As of 2026-08-19 03:45 CST, there were 5,293,667 lines of clean-compiling code in the ever-growing 3.1 code base.  That is 244,278 more lines than on 2026-07-09, for an average of 5,958 new lines of code per day.
 <dl>
+<dt>2026-08-21 23:00 CST</dt><dd>The protected tables get created now, but they don't clean-compile yet. One step at a time.</dd>
 <dt>2026-08-21 19:15 CST</dt><dd>The rules don't cause infite recursion any more, but there are still some gotchas on the protected table implementations.</dd>
 <dt>2026-08-21 13:55 CST</dt><dd>The schemaprotbuff/buff/SchemaProtBuffTable.java.xml file has been updated sufficiently to get rid of all the duplicate rule names and to implement the missing JustProt variants required, but I'm getting a stack overflow - I suspect I've either got some bad rule nesting causing an infinite loop or an error in the implementation of the engine custom verbs for IsPublic, IsProtected, and IsPrivate.</dd>
 <dt>2026-08-20 02:00 CST</dt><dd>I'm working on the protected buffer record implementations right now; there are a lot of rule conflicts after my bulk edits to be cleaned up and corrected, but not only will I get there, I'll get there tonight if I have my way! In the meantime, King Gizzard and The Lizard Wizard are deelie-bopping some synthetic tonal energy in my workspace and keeping me quite perky despite the late hour.</dd>
