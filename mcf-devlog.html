@@ -44,6 +44,7 @@ Once I'm done with the ConcurrentHashMap changes for the Obj layer, then ProtObj
 <p>
 As of 2026-08-19 03:45 CST, there were 5,293,667 lines of clean-compiling code in the ever-growing 3.1 code base.  That is 244,278 more lines than on 2026-07-09, for an average of 5,958 new lines of code per day.
 <dl>
+<dt>2026-09-09 02:00 CST</dt><dd>Finally some progress with GraalVM - I have .js files being output, but I'm still getting .jar packaging errors using Graal, even though I don't explictly compile any of the javascript or package it for distribution, and don't see any logging messages suggesting that might be happening.</dd>
 <dt>2026-09-08 17:00 CST</dt><dd>Been banging away at GraalVM. No luck yet. Keep getting stack overflows building the jars.</dd>
 <dt>2026-09-06 09:15 CST</dt><dd>Work in progress; I have so many packages to migrate it is necessary to automate key aspects of the GraalVM integration process, such as creating a default main for the packages.</dd>
 <dt>2026-09-03 07:00 CST</dt><dd>This is promising - I'm down to some failed tests and on the verge of my first successful GraalVM packaging.</dd>
