@@ -44,6 +44,7 @@ Once I'm done with the ConcurrentHashMap changes for the Obj layer, then ProtObj
 <p>
 As of 2026-08-19 03:45 CST, there were 5,293,667 lines of clean-compiling code in the ever-growing 3.1 code base.  That is 244,278 more lines than on 2026-07-09, for an average of 5,958 new lines of code per day.
 <dl>
+<dt>2026-09-21 14:15 CST</dt><dd>At long last I've got what I wanted happening: production of JavaScript code for my Java classes by TeaVM. Next I need to prepare the resulting JavaScript for deployment, copy the deployment artifacts to the classes/META-INF/js directory along with the .js files and artifacts themselves for debug referencing, and repackage the jars with the additional artifacts.</dd>
 <dt>2026-09-20 14:10 CST</dt><dd>There we go - the files produced by graalvm are now copied back into the source tree when it's done with it's tasks. Next is wiring a javascript build step.</dd>
 <dt>2026-09-20 13:40 CST</dt><dd>The build actually runs clean now and produces temp directory output that I need to copy back into my source trees for build management.</dd>
 <dt>2026-09-17 21:30 CST</dt><dd>The pom.xml is almost ready; I need to cobble a replacement for running native-image that uses the exec-plugin instead of the 'official' plugin.</dd>
