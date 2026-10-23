@@ -56,6 +56,7 @@ So unlike the architecture behind MSS Code Factory 2.13, the code base behind Yo
 <p>
 I also have some ideas around data filter definition and processing in conjunction with event-based condition evaluation and propagation that could yield some interesting results for deploying the actual business logic behind a system in as reusable a fashion as possible. To be honest, I wonder if I'll ever be done with my code base, or if I'll still be working on it the day they strap me into an extra-long-sleeved jacket for permanent residence in a rubber room somewhere...
 <dl>
+<dt>2026-10-23 04:55 CST</dt><dd>Get rid of [I]YCFMtReference seeing as templates don't seem to be supported normally.</dd>
 <dt>026-10-23 04:40 CST</dt><dd>I am finally happy with the state of [I]YCFAnyObj and [I]YCFMtReferenceBase, but it looks like I'll have to abandon the idea of an [I]YCFMtReference that uses template arguments to automatically typecast the referenced value to the target type specified, as either the compler or TeaVM don't like that form of code at all for some reason; probably due to some JavaScript limitation(s).</dd>
 <dt>2026-10-21 07:50 CST</dt><dd>Fleshed out more interfaces, and implemented most of an instance.</dd>
 <dt>2026-10-18 08:00 CST</dt><dd>Shifted a copy of the secure, intnet, and bammodel schemas into the ycf-v3_1 module as submodules of that submodule. The tool doesn't produce this layout just yet, but it will soon, and I want a snapshot to be doing comparisons to in the future when it does.</dd>
