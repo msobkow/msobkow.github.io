@@ -32,6 +32,12 @@ very little with the prior knowledge base and code structure that produced the 2
 <p>
 <strong>2026-10-18 00:00 CST MSS Code Factory alpha13 EBF 202610180000</strong> released at <a href="https://github.com/msobkow/org.msscf.msscf.v2_13-installer/releases/tag/2.13.42-alpha13-ebf-202610180000">https://github.com/msobkow/org.msscf.msscf.v2_13-installer/releases/tag/2.13.42-alpha13-ebf-202610180000</a>. You can find installation instructions at <a href="https://github.com/msobkow/org.msscf.msscf.v2_13-installer">https://github.com/msobkow/org.msscf.msscf.v2_13-installer</a> and the README.md displayed there. There have also been releases of the 2.13 knowledge base and model set as of 2026-10-18 00:00 CST, tagged as <tt>2.13.42-alpha13-ebf-202610180000</tt> which are included in the installer and are required alongside the executable jars to run the tool. Alpha13 shifts gears temporarily to working on TeaVM support to allow for cross-compilation to JavaScript for deployment of the web clients, which will connect directly to the back end using the same code base the back end is coded with.  I haven't finished the CodeVis changes yet, though a huge amount of that work is now complete, and I haven't forgotten about the Role implementations.
 <p>
+<H2>Current Progress Numbers</H2>
+<p>
+Total Lines of Knowledge Base files: 84,825<br>
+Total Lines in 2.13 Code Base: 3,784,640</br>
+Total Lines in ycf-core (hand-written code being worked on): 1,459,569
+<p>
 <H2>Overview Of The Technology</H2>
 <p>
 Yorkton Code Fractal (formerly MSS Code Factory) is a tool used to accelerate the production of the repetitive code that comprises 75-95% of the typical enterprise business application - the "glue" between the business logic programmer and the backing data servers and databases. It does so by applying a knowledge base of General Expansion Rule (GEL) files following specific XML document schemas and semantic constraints to a Business Application Model (BAM), which is an enhanced ERD constrained by a customized schema definition available here: <a href="msscf/2.0.13/xsd/mssbam-2.13.xsd">mssbam-2.13.xsd</a>, with 3.1 using an updated ycf/3.0.1/xsd/mssbam-3.1.xsd specification adapted to the new capabilities of the customized CFCore Engine eventualy implemented for the 3.1 BAM.
