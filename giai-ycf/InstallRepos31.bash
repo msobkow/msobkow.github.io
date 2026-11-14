@@ -1,26 +1,17 @@
 #!/bin/bash
-if [ "$YCF_HOME" == "" ]; then
-	if [ ! -d /opt/mcf ]; then
-		sudo mkdir /opt/mcf
-		sudo chown $USER:$USER /opt/mcf
-	fi;
-	if [ ! -d /opt/mcf/v3_1 ]; then
-		mkdir /opt/mcf/v3_1
+if [ "$GIAI_HOME" == "" ]
+then
+	if [ ! -d /opt/giai ]
+	then
+		sudo mkdir /opt/giai
+		sudo chown $USER:$USER /opt/giai
 	fi
-	if [ ! -d /opt/mcf/v3_1/java ]; then
-		mkdir /opt/mcf/v3_1/java
-	fi
-	export YCF_HOME=/opt/mcf/v3_1/java
+	export GIAI_HOME=/opt/giai
 fi
-if [ "$YCF_HOME" != "" ]; then
-	pushd $YCF_HOME
-	for arepo in \
-		bin-v3_1 \
-		server.markhome.ycf \
-		server.markhome.ycf.v3_1 \
-		server.markhome.ycf.v3_1.secure \
-		server.markhome.ycf.v3_1.intnet \
-		server.markhome.ycf.v3_1.busmodel
+if [ "$GIAI_HOME" != "" ]
+then
+	pushd $GIAI_HOME
+	for arepo in msobkow.github.io server.markhome.giai
 	do
 		if [ ! -d $arepo ]; then
 			git clone git@github.com:msobkow/${arepo}.git
